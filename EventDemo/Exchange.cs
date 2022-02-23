@@ -35,6 +35,10 @@ namespace EventDemo
             ClearScreen();
             Print(name);
             Print("--------------------------");
+            PrintAllStockPrices();
+            Print("--------------------------");
+        
+            
             //call setstockprices on all stocks in the list
             foreach (Stock s in Stocks)
             {
