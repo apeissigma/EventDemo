@@ -6,12 +6,13 @@
 
 using System;
 
-namespace MondayEventDemo
+namespace EventDemo
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            Console.Title = "PROG 201 Event Demo";
             Exchange exchange = new Exchange();
             exchange.Open();
         }

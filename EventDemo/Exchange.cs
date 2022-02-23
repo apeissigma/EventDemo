@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static EventDemo.Utility;
 
-namespace MondayEventDemo
+namespace EventDemo
 {
     class Exchange
     {
+        private string name = "Event Demo Stock Exchange";
         List<Stock> Stocks = new List<Stock>()
         {
-            new Stock("HCKR"),
             new Stock("PROG"),
-            new Stock("c0de"),
-            new Stock("CODE"),
+            new Stock("C0D3"),
             new Stock("BYTE")
         };
         public void Open()
@@ -22,7 +22,7 @@ namespace MondayEventDemo
         }
         private void Menu()
         {
-            Console.WriteLine("Press x to exit, any other key to check prices again.");
+            Print("Press x to exit, any other key to check for price changes again.");
             string input = Console.ReadLine();
             if (input.ToLower() != "x")
             {
@@ -32,10 +32,13 @@ namespace MondayEventDemo
         }
         private void Run()
         {
+            ClearScreen();
+            Print(name);
+            Print("--------------------------");
             //call setstockprices on all stocks in the list
             foreach (Stock s in Stocks)
             {
-                CheckStockPrice(s);
+                s.PriceFluctuation();
             }
             Menu();
 
@@ -49,17 +52,12 @@ namespace MondayEventDemo
                 s.Price = Utility.RandomNumber.Next(20, 30);
             }
         }
-
-        private void CheckStockPrice(Stock s)
-        {
-            s.Price = s.Price + Utility.RandomNumber.Next(-10, 10);
-        }
-
+      
         private void PrintAllStockPrices()
         {
             foreach (Stock s in Stocks)
             {
-                Console.WriteLine($"The price of {s.Symbol} is {s.Price}");
+                Print($"The price of {s.Symbol} is {s.Price}");
             }
         }
 

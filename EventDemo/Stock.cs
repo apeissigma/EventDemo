@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static EventDemo.Utility;
 
-namespace MondayEventDemo
+namespace EventDemo
 {
     class Stock
     {
@@ -17,6 +18,13 @@ namespace MondayEventDemo
         {
             PriceChanged?.Invoke(this, e);
         }
+
+        public void PriceFluctuation()
+        {
+            if (GetRandomInteger(2)==1)
+            Price = Price + GetRandomInteger(-10, 10);
+        }
+
 
         public decimal Price
         {
@@ -35,7 +43,7 @@ namespace MondayEventDemo
         public void stock_PriceChanged(object sender, PriceChangedEventArgs e)
         {
             if (e.LastPrice != e.NewPrice)
-                Console.WriteLine($"{Symbol} price has changed. Previous price was {e.LastPrice}, new price is {e.NewPrice}. The difference is {e.LastPrice - e.NewPrice}.");
+                Print($"{Symbol} price has changed. Previous price was {e.LastPrice}, new price is {e.NewPrice}. The difference is {e.LastPrice - e.NewPrice}.");
         }
 
         public class PriceChangedEventArgs : EventArgs
