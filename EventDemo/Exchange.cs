@@ -37,13 +37,20 @@ namespace EventDemo
             Print("--------------------------");
             PrintAllStockPrices();
             Print("--------------------------");
-        
-            
+
+            Print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Print("Stock prices are updating!");
+            Print("~~~~~~~~~~~~~~~~~~~~~~~~~~");
             //call setstockprices on all stocks in the list
             foreach (Stock s in Stocks)
             {
                 s.PriceFluctuation();
             }
+
+            Print(name);
+            Print("--------------------------");
+            PrintAllStockPrices();
+            Print("--------------------------");
             Menu();
 
         }
