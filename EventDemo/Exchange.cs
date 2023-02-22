@@ -17,7 +17,7 @@ namespace EventDemo
         public void Open()
         {
             SetStockPrices();
-            PrintAllStockPrices();
+   
             Run();
         }
         private void Menu()
